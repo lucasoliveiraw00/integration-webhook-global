@@ -1,0 +1,48 @@
+{
+  "name": "interceptor-webhook-notification",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start:dev": "tsnd --transpile-only --respawn --ignore-watch node_modules src/server.ts",
+    "start:prod": "node src/server.js",
+    "format": "prettier . --write",
+    "postinstall": "husky install"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.22.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "lint-staged": "^11.1.2",
+    "nodemon": "^2.0.13",
+    "ts-node": "^10.2.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^13.2.0",
+    "@commitlint/config-conventional": "^13.2.0",
+    "@types/express": "^4.17.7",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^7.0.2",
+    "ts-node-dev": "^1.0.0-pre.56",
+    "typescript": "^3.9.7",
+    "prettier": "^2.4.1"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,js}": [
+      "prettier . --write"
+    ]
+  }
+}
