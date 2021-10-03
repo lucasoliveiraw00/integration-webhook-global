@@ -10,10 +10,15 @@ export function getLanguage(issue) {
   return getEvent(issue)?.location?.split('.')?.slice(-1)?.[0] || '';
 }
 
+type TEvent = {
+  name: string;
+  version?: string;
+};
+
 export function getContexts(issue) {
   const contexts = getEvent(issue)?.contexts ?? {};
   const values = Object.values(contexts).map(
-    value => `${value?.name} ${value?.version}`,
+    (value: TEvent) => `${value?.name} ${value?.version}`,
   );
 
   return values ?? [];

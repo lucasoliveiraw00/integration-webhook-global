@@ -99,7 +99,7 @@ export class SendNotificationDiscordV2Controller
       const location = parser.getErrorLocation(body, 7);
       embed.addField(
         'Stack',
-        `\`\`\`${this._cap(location.join('\n'), 1000)}\n\`\`\``,
+        `\`\`\`${this._cap(location?.join('\n'), 1000)}\n\`\`\``,
       );
 
       const user = parser.getUser(body);
@@ -116,7 +116,7 @@ export class SendNotificationDiscordV2Controller
         embed.addField(
           'Tags',
           this._cap(
-            tags.map(([key, value]) => `${key}: ${value}`).join('\n'),
+            tags.map(([key, value]) => `${key}: ${value}`)?.join('\n'),
             1024,
           ),
           true,
@@ -125,12 +125,12 @@ export class SendNotificationDiscordV2Controller
 
       const extras = parser.getExtras(body);
       if (extras.length > 0) {
-        embed.addField('Extras', this._cap(extras.join('\n'), 1024), true);
+        embed.addField('Extras', this._cap(extras?.join('\n'), 1024), true);
       }
 
       const contexts = parser.getContexts(body);
       if (contexts.length > 0) {
-        embed.addField('Contexts', this._cap(contexts.join('\n'), 1024), true);
+        embed.addField('Contexts', this._cap(contexts?.join('\n'), 1024), true);
       }
 
       const release = parser.getRelease(body);
