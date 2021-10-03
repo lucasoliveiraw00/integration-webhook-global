@@ -54,7 +54,7 @@ export class SendNotificationDiscordController
 
       const payload = {
         username: 'Sentry',
-        avatar_url: `https://github.com/lucasoliveiraw00/transfer-notification/blob/main/public/assets/img/sentry/sentry-icon.png`,
+        avatar_url: `https://github.com/lucasoliveiraw00/integration-webhook-global/blob/main/public/assets/img/sentry/sentry-icon.png`,
         embeds: [
           {
             title: body.project_name,
