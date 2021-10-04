@@ -120,8 +120,7 @@ export class SendNotificationDiscordController
         embed.addField('Release', this._cap(release, 1024), true);
       }
 
-      const baseUrl =
-        request.protocol + '://' + request.get('host') + request.originalUrl;
+      const baseUrl = request.protocol + '://' + request.headers.host;
 
       const payload = {
         username: 'Sentry',
