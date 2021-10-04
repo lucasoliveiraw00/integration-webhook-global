@@ -1,8 +1,5 @@
 import { Router } from 'express';
-import {
-  sendNotificationDiscord,
-  sendNotificationDiscordV2,
-} from './Controller/Sentry';
+import { sendNotificationDiscord } from './Controller/Sentry';
 
 const router = Router();
 
@@ -13,15 +10,8 @@ router.post(
   },
 );
 
-router.post(
-  '/api/v2/webhook/sentry/send-discord/:id/:token',
-  (request, response) => {
-    return sendNotificationDiscordV2.handleSendNotification(request, response);
-  },
-);
-
-router.get('/', (request, response) => {
-  return response.json({ message: 'Hello Word!!' });
+router.get('/', (_, response) => {
+  return response.json({ message: 'Integration Webhook Global' });
 });
 
 export { router };
