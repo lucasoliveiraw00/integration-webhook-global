@@ -101,7 +101,9 @@ export class SendNotificationDiscordController
 
       webhookClient.send({
         username: 'Jenkins',
-        content: `${phase}: Job ${this._cap(body.name, 250)} #${build.number}
+        content: `${phase} Deploy Project ${this._cap(body.name, 250)} #${
+          build.number
+        }
         `,
         avatarURL: `${baseUrl}/static/assets/img/jenkins/sss-icon.png`,
         embeds: [embed],
