@@ -105,7 +105,7 @@ export class SendNotificationDiscordController
           build.number
         }
         `,
-        avatarURL: `${baseUrl}/static/assets/img/jenkins/sss-icon.png`,
+        avatarURL: `${baseUrl}/static/assets/img/jenkins/jenkins-icon.png`,
         embeds: [embed],
       });
 
