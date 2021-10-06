@@ -1,9 +1,8 @@
 import { Request, Response } from 'express';
-import { MessageEmbed } from 'discord.js';
+
+import { MessageEmbed, WebhookClient } from 'discord.js';
 
 import * as parser from '../../utils/sentry/parser';
-
-import axios from 'axios';
 
 type TRequest = Request & {
   params: {
@@ -120,18 +119,13 @@ export class SendNotificationDiscordController
         embed.addField('Release', this._cap(release, 1024), true);
       }
 
+      const webhookClient = new WebhookClient({ id, token });
       const baseUrl = request.protocol + '://' + request.headers.host;
 
-      const payload = {
+      webhookClient.send({
         username: 'Sentry',
-        avatar_url: `${baseUrl}/static/assets/img/sentry/sentry-icon.png`,
-        embeds: [embed.toJSON()],
-      };
-
-      axios.post(`https://discord.com/api/webhooks/${id}/${token}`, payload, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        avatarURL: `${baseUrl}/static/assets/img/sentry/sentry-icon.png`,
+        embeds: [embed],
       });
 
       return response.status(200).send();
