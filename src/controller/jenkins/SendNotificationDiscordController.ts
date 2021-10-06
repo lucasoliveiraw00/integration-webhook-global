@@ -72,7 +72,6 @@ export class SendNotificationDiscordController
       embed.setColor(this._getColor(build.phase));
       embed.addField('Process', `${build.phase}`, true);
       embed.addField('Number Deploy', `#${build.number}`, true);
-      embed.addField('Number Deploy', `#${build.number}`, true);
 
       if (build?.duration) embed.addField('Duration', `#${build.duration}`);
 
@@ -93,8 +92,6 @@ export class SendNotificationDiscordController
 
       const webhookClient = new WebhookClient({ id, token });
       const baseUrl = request.protocol + '://' + request.headers.host;
-
-      embed.setThumbnail(`${baseUrl}/static/assets/img/jenkins/teste.gif`);
 
       const phase = build.phase
         .toLowerCase()
