@@ -103,7 +103,7 @@ export class SendNotificationDiscordController
         username: 'Jenkins',
         content: `${phase}: Job ${this._cap(body.name, 250)} #${build.number}
         `,
-        avatarURL: `${baseUrl}/static/assets/img/jenkins/jenkins-icon.png`,
+        avatarURL: `${baseUrl}/static/assets/img/jenkins/sss-icon.png`,
         embeds: [embed],
       });
 
