@@ -65,7 +65,7 @@ export class SendNotificationDiscordController
 
       embed.setTitle(this._cap('Github', 250));
 
-      console.log(body);
+      console.log(JSON.stringify(body));
       embed.addField('Extras', JSON.stringify(body), true);
 
       const webhookClient = new WebhookClient({ id, token });
